@@ -5,7 +5,7 @@ Advanced ODE/DAE solver suite in pure Python, inspired by SUNDIALS and Assimulo.
 [![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🚀 Features
+## 🚀Features
 
 - **Multiple Methods**: Dormand-Prince 5(4), BDF (1-5), Radau IIA
 - **Adaptive Step Size**: Automatic error control  
@@ -13,7 +13,7 @@ Advanced ODE/DAE solver suite in pure Python, inspired by SUNDIALS and Assimulo.
 - **Pure Python**: No external dependencies
 - **SciPy-Compatible API**: Easy migration from scipy.integrate.solve_ivp
 
-## 📦 Installation
+##  Installation
 
 ```bash
 pip install pyodesolve
@@ -26,7 +26,7 @@ cd pyodesolve
 pip install -e .
 ```
 
-## 🎯 Quick Start
+##  Quick Start
 
 ```python
 from pyodesolve import solve_ivp
@@ -46,7 +46,7 @@ print(f"Final: {result.y[-1][0]:.6f}")  # 0.006738
 | BDF | Implicit multi-step | 1-5 | Stiff problems |
 | Radau | Implicit RK | 5 | Very stiff, DAEs |
 
-## 💡 Examples
+##  Examples
 
 ### Non-Stiff: Lorenz Attractor
 
@@ -75,7 +75,7 @@ def robertson(t, y):
 result = solve_ivp(robertson, (0, 1e5), [1, 0, 0], method='BDF')
 ```
 
-## 🎓 Method Selection Guide
+##  Method Selection Guide
 
 **Use DOP853 for:**
 - Non-stiff problems
@@ -94,9 +94,9 @@ result = solve_ivp(robertson, (0, 1e5), [1, 0, 0], method='BDF')
 - Maximum stability
 - Differential-algebraic equations
 
-**💡 Pro tip**: Provide analytical Jacobian for 2-10x speedup!
+** Pro tip**: Provide analytical Jacobian for 2-10x speedup!
 
-## 📈 Performance
+##  Performance
 
 Robertson problem (t=0 to 1e5):
 
@@ -105,28 +105,28 @@ Robertson problem (t=0 to 1e5):
 | DOP853 | 50000+ | 350000+ | Slow |
 | BDF | 154 | 389 | **Fast** |
 
-## 🧪 Running Tests
+## Running Tests
 
 ```bash
 pytest tests/
 ```
 
-## 📚 Documentation
+## Documentation
 
 See `examples/` directory:
 - `basic_usage.py` - Simple examples
 - `stiff_problems.py` - Stiff demonstrations  
 - `benchmarks.py` - Comprehensive benchmarks
 
-## 📄 License
+##  License
 
 MIT License
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Inspired by SUNDIALS (CVODE), Assimulo, and SciPy's solve_ivp.
 
-## 📧 Contact
+## Contact
 
 - Issues: GitHub Issues
-- Email: your.email@example.com  # CHANGE THIS
+
