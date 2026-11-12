@@ -1,61 +1,21 @@
-# Getting Started with PyODESolve
+# Recovering the PyODESolve prototype
 
-## 🚀 Quick Setup (5 minutes)
+The current checkout is incomplete. Installing the package does not supply the missing solver classes, and importing it currently raises an `ImportError` for `ODEResult`.
 
-### 1. Complete the Code
+| Missing class | Destination |
+| --- | --- |
+| `BaseODESolver` | `pyodesolve/core/base.py` |
+| `ODEResult` | `pyodesolve/core/result.py` |
+| `SolverStatistics` | `pyodesolve/core/statistics.py` |
+| `DormandPrince` | `pyodesolve/explicit/dormand_prince.py` |
+| `BDF` | `pyodesolve/implicit/bdf.py` |
+| `RadauIIA` | `pyodesolve/implicit/radau.py` |
 
-The solver classes need to be copied from the artifact:
+1. Recover the original implementation and its provenance. The included ZIP also contains placeholders.
+2. Confirm method coefficients, solver orders, error estimates and supported problem classes. Resolve the `DOP853` naming mismatch before documenting a numerical method.
+3. Restore and review the core classes and relative imports.
+4. Run `python -c "import pyodesolve"`, then the existing tests and examples from this repository.
+5. Add meaningful convergence, tolerance, failure-mode and reference-solution checks before claiming accuracy or performance. DAE support needs its own formulation and tests.
+6. Publish benchmarks only with runnable problem definitions, tolerances, environment and measured results.
 
-1. Open the first PyODESolve artifact (the long one with all solver code)
-2. Copy each class to its corresponding file:
-
-**Core classes:**
-- `BaseODESolver` → `pyodesolve/core/base.py`
-- `ODEResult` → `pyodesolve/core/result.py`
-- `SolverStatistics` → `pyodesolve/core/statistics.py`
-
-**Solver classes:**
-- `DormandPrince` → `pyodesolve/explicit/dormand_prince.py`
-- `BDF` → `pyodesolve/implicit/bdf.py`
-- `RadauIIA` → `pyodesolve/implicit/radau.py`
-
-**Update imports** in each file to use relative imports:
-```python
-from ..core.base import BaseODESolver
-from ..core.result import ODEResult
-```
-
-### 2. Install
-
-```bash
-cd pyodesolve_project
-pip install -e .
-```
-
-### 3. Test
-
-```bash
-python examples/basic_usage.py
-pytest tests/
-```
-
-### 4. Upload to GitHub
-
-```bash
-git init
-git add .
-git commit -m "Initial commit: PyODESolve v0.1.0"
-git remote add origin https://github.com/YOUR_USERNAME/pyodesolve.git
-git push -u origin main
-```
-
-## 📋 Before GitHub Upload
-
-Update these files:
-- `setup.py` - Change author name, email, URL
-- `README.md` - Change contact email and repo URL
-- `LICENSE` - Change copyright name
-
-## ✅ Done!
-
-Your ODE solver library is ready for the world! 🎉
+If implementation recovery is not planned, keep the repository as an explicitly incomplete historical prototype and archive it after recording that status.
